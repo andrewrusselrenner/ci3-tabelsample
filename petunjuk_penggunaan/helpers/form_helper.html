@@ -1,0 +1,1500 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Form Helper &mdash; dokumentasi CodeIgniter 3.0.3-dev</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/ci-icon.ico"/>
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/citheme.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Indeks"
+              href="../genindex.html"/>
+        <link rel="search" title="Pencarian" href="../search.html"/>
+    <link rel="top" title="dokumentasi CodeIgniter 3.0.3-dev" href="../index.html"/>
+        <link rel="up" title="Referensi Helper" href="index.html"/>
+        <link rel="next" title="HTML Helper" href="html_helper.html"/>
+        <link rel="prev" title="File Helper" href="file_helper.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div id="nav">
+  <div id="nav_inner">
+    
+    
+    
+      <div id="pulldown-menu" class="ciNav">
+        <ul>
+<li class="toctree-l1"><a class="reference internal" href="../general/welcome.html">Selamat datang di CodeIgniter</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Panduan Instalasi</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/downloads.html">Downloading CodeIgniter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/index.html">Panduan Instalasi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/upgrading.html">Upgrade Dari Versi Sebelumnya</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/troubleshooting.html">Penyelesaian Masalah</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Ikhtisar CodeIgniter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../overview/getting_started.html">Memulai dengan CodeIgniter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/at_a_glance.html">Sekilas Tentang CodeIgniter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/features.html">Fitur yang Didukung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/appflow.html">Alur Aplikasi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/mvc.html">Model-View-Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/goals.html">Desain and Sasaran Arsitektur</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/static_pages.html">Halaman Statis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/news_section.html">Bagian Berita</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/create_news_items.html">Membuat Item Berita</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/conclusion.html">Kesimpulan</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">Berkontribusi ke CodeIgniter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/index.html">Menulis Dokumentasi CodeIgniter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer's Certificate of Origin 1.1</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../general/index.html">Pembahasan Umum</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../general/urls.html">CodeIgniter URLs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/controllers.html">Controllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/reserved_names.html">Reserved Names</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/views.html">Views</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/models.html">Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/helpers.html">Helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/libraries.html">Menggunakan Library CodeIgniter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/creating_libraries.html">Membuat Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/drivers.html">Using CodeIgniter Drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/creating_drivers.html">Membuat Driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/core_classes.html">Membuat Class Inti Sistem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/ancillary_classes.html">Membuat Class Tambahan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/hooks.html">Hooks - Mengembangkan Inti Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/autoloader.html">Auto-loading Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/common_functions.html">Fungsi-fungsi Umum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/compatibility_functions.html">Fungsi-fungsi Kompatibilitas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/routing.html">URI Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/errors.html">Penanganan Error</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/caching.html">Caching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/profiling.html">Profiling Aplikasi Anda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/cli.html">Menjalankan dengan CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/managing_apps.html">Mengelola Aplikasi Anda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/environments.html">Handling Multiple Environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/alternative_php.html">Alternatif Syntax PHP untuk File View</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/security.html">Keamanan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/styleguide.html">PHP Style Guide</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/index.html">Referensi Library</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/benchmark.html">Benchmarking Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/caching.html">Caching Driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/calendar.html">Calendaring Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/cart.html">Shopping Cart Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/config.html">Config Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/email.html">Email Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/encrypt.html">Encrypt Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/encryption.html">Encryption Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/file_uploading.html">File Uploading Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/form_validation.html">Form Validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/ftp.html">FTP Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/image_lib.html">Image Manipulation Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/input.html">Input Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/javascript.html">Javascript Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/language.html">Language Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/loader.html">Loader Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/migration.html">Migrations Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/output.html">Output Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/pagination.html">Pagination Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/parser.html">Template Parser Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/security.html">Security Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/sessions.html">Session Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/table.html">HTML Table Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/trackback.html">Trackback Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/typography.html">Typography Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/unit_testing.html">Unit Testing Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html">URI Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/user_agent.html">User Agent Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/xmlrpc.html">XML-RPC and XML-RPC Server Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/zip.html">Zip Encoding Class</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../database/index.html">Referensi Database</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../database/examples.html">Quick Start: Contoh Penggunaan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/configuration.html">Konfigurasi Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/connecting.html">Menghubungkan ke Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/queries.html">Menjalankan Queries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/results.html">Menampilkan Hasil Query</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/helpers.html">Fungsi-fungsi Query Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/query_builder.html">Query Builder Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Transactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Mendapatkan MetaData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Memanggil Custom Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/caching.html">Query Caching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/forge.html">Manipulasi Database dengan Database Forge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/utilities.html">Database Utilities Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/db_driver_reference.html">Referensi Database Driver</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Referensi Helper</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="array_helper.html">Array Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="captcha_helper.html">CAPTCHA Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cookie_helper.html">Cookie Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="date_helper.html">Date Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="directory_helper.html">Directory Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="download_helper.html">Download Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="email_helper.html">Email Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="file_helper.html">File Helper</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Form Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="html_helper.html">HTML Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inflector_helper.html">Inflector Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="language_helper.html">Language Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="number_helper.html">Number Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="path_helper.html">Path Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security_helper.html">Security Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smiley_helper.html">Smiley Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="string_helper.html">String Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="text_helper.html">Text Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typography_helper.html">Typography Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="url_helper.html">URL Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="xml_helper.html">XML Helper</a></li>
+</ul>
+</li>
+</ul>
+
+      </div>
+    
+      
+  </div>
+</div>
+<div id="nav2">
+  <a href="#" id="openToc">
+    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAgAAZABkAAD/7AARRHVja3kAAQAEAAAARgAA/+4ADkFkb2JlAGTAAAAAAf/bAIQABAMDAwMDBAMDBAYEAwQGBwUEBAUHCAYGBwYGCAoICQkJCQgKCgwMDAwMCgwMDQ0MDBERERERFBQUFBQUFBQUFAEEBQUIBwgPCgoPFA4ODhQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQU/8AAEQgAKwCaAwERAAIRAQMRAf/EAHsAAQAABwEBAAAAAAAAAAAAAAABAwQFBgcIAgkBAQAAAAAAAAAAAAAAAAAAAAAQAAEDAwICBwYEAgsAAAAAAAIBAwQAEQUSBiEHkROTVNQWGDFBUVIUCHEiMtOUFWGBobHRQlMkZIRVEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwDSC+ygkOOaUoKigUCgUCgUCgUCgUCgUCgUCgkuGguIP9FBMFb0Hqg7We+3jlmIqqYFf4ub+/QYlnOR/LqIBKGFUbf8qWv971BytQXXE7Y3Lnm3HsFhp2TaZJAdchRXpIgSpdEJWxJEW3xoKV7F5OMy7JkQn2o7D6w33XGjEAkoiqrJEqIiOIiKuhePCgqp22dyYyS3CyWHnQ5joG61HkRnmnTbaFSMhExRVQRRVJU9iUHjE7ez+fJ0MFipmUNhBV8YUd2SoIV9KkjQla9ltegttBdPLW4/qocL+UTfrMiHW4+P9M71shuyrqaHTcxsl7jegpsji8nh5ZwMvDfgTm0RTjSmjYdFCS6KoOIipdFunCgmNYTMv457MMY6U7iI6oMieDDhRm1VbIhuoOkbqtuK0Hpzb+eZcYZexUxt6UyUqK2cd0SdjtgrhOgijcgERUlJOCIl6CpgbP3blRI8XgMjNARAyKNDfeRBdFDBVUAXgQrqH4pxoJTu2NysY97LP4ac1io5q1InHFeGO24LnVKJuKOkSQ/yKir+rh7aCLG1dzypZQI2FnvTgccYOM3FeN0XWERXAUEFVQgQkUktdLpegm+Td3/Xli/L+S/mYNJIOF9G/wBeLKrZHFb0akG6W1WtQWSg3Dyg5e7V3fipE3O4/wCrktyzYA+ufas2LbZIlmnAT2kvuoN1wft95augilglX/tzP3qCu9O3LL/wV/i5v79BvmTADq14UGu91467Z6U9y0HzH/ncj/U/sT/CgynZG7I2NezpZGUjIycJkYkZSG+uQ81pbBNKLxJfjwoMqZ3/ALYHl35AJ7/cuwHcu5k7r1Q5pHetBjquqVVJWGxj9Zrtcl/Ggy3dHMvauR3HFZj5nHNxSyW5JISYDMoIwx8tFIGHZhPNaykGapr6rUAiicEoMG21lMRj8buPAz8xhJrr7uOeiPTCyAwXUaGR1mgozbTusOsFLEiJ7fbQa/h7gcjy2H3V6xppwDNtUSxCJIqp7valBuWVzJ22xuCROXNNZiJkMtms0DbjUkAZjzoDrTMd9dDRI44ZC2YsrYdKWP2WDT2S3N9dNdlRYrGMYc06IURXSYb0igrpWS485xVNS6nF4rwslkoMwnbpgZLB7bmt5uMweAhDEl4B5uSLzzqTnnyVpW2jaJHRMSIjdDiiotvy3DOE5rYTEbkl5yFn28k7JyG4c7AU2HtLH1uKfaiMPI40CdYbpNtmLdwTSn5rewLNld+7TLdeal4WarWBkbVKBjgdElMJJwAAY5fl4kB3b1fp4XvagsGS3FjJfLzDNtS8aeXx7LzT7TyzByQE5PccRGRC0ZRUDRV6y62vbjagzLmJzS2vuPK43JY6aP1TW6Jz+RIWyFtyC06y3EkiiinAo7YCqfq1AqqnGgsOH3lhZO8d1pmcpB8j5XIm9OYlBJSQ/FSS4427DKO0RC8AlcEMhFdViRR1WDWR5t3WXVuL1d106kG9vdeye2g60+1FDyW0shIcXVpyroXt8I8dfd+NB1vioAdWnD3UF1+gD4UFc6CEKpagxXN43rwJLUHz7yX2c8zokt9uHlsPIhA4aRnnHJTLptIS6CNsY7iASpxUUMkReGpfbQW0vtN5pitvrsN28rwtBD0nc0+/Yft5XhaB6TuaXfsP28rwtA9J3NPv2H7eV4Wgek7mn37D9vK8LQPSdzT79h+3leFoHpO5pd+w/byvC0D0nc0u/Yft5XhaB6TuaXfsP28rwtA9J3NLv2H7eV4Wgek7ml37D9vK8LQPSdzS79h+3leFoHpO5p9+w/byvC0E9r7Reazy2HIYVPxkS/CUHVn26cosxyv2g7h89LYmZSXOenvLEQ1YaQ222RATcQCP8rSGqqA8S02W2pQ6FhMoAIlqCtsnwoCpdKClejI4i3Sgtb+GBxVuNBSFt1pV/RQefLjPyUDy4z8lA8uM/JQPLjPyUDy4z8lA8uM/JQPLjPyUDy4z8lA8uM/JQPLjPyUDy4z8lA8utJ/koJ7WCbBU/LQXOPAFq1koK8B0pag90CggtBBf6qB0UDooHRQOigdFA6KB0UDooHRQOigdFA6KB0UDooI0EaBQf//Z" title="Toggle Table of Contents" alt="Toggle Table of Contents" />
+  </a>
+</div>
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="../index.html" class="fa fa-home"> CodeIgniter</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../general/welcome.html">Selamat datang di CodeIgniter</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Panduan Instalasi</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/downloads.html">Downloading CodeIgniter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/index.html">Panduan Instalasi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/upgrading.html">Upgrade Dari Versi Sebelumnya</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/troubleshooting.html">Penyelesaian Masalah</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Ikhtisar CodeIgniter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../overview/getting_started.html">Memulai dengan CodeIgniter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/at_a_glance.html">Sekilas Tentang CodeIgniter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/features.html">Fitur yang Didukung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/appflow.html">Alur Aplikasi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/mvc.html">Model-View-Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/goals.html">Desain and Sasaran Arsitektur</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/static_pages.html">Halaman Statis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/news_section.html">Bagian Berita</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/create_news_items.html">Membuat Item Berita</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/conclusion.html">Kesimpulan</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">Berkontribusi ke CodeIgniter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/index.html">Menulis Dokumentasi CodeIgniter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer's Certificate of Origin 1.1</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../general/index.html">Pembahasan Umum</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../general/urls.html">CodeIgniter URLs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/controllers.html">Controllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/reserved_names.html">Reserved Names</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/views.html">Views</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/models.html">Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/helpers.html">Helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/libraries.html">Menggunakan Library CodeIgniter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/creating_libraries.html">Membuat Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/drivers.html">Using CodeIgniter Drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/creating_drivers.html">Membuat Driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/core_classes.html">Membuat Class Inti Sistem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/ancillary_classes.html">Membuat Class Tambahan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/hooks.html">Hooks - Mengembangkan Inti Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/autoloader.html">Auto-loading Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/common_functions.html">Fungsi-fungsi Umum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/compatibility_functions.html">Fungsi-fungsi Kompatibilitas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/routing.html">URI Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/errors.html">Penanganan Error</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/caching.html">Caching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/profiling.html">Profiling Aplikasi Anda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/cli.html">Menjalankan dengan CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/managing_apps.html">Mengelola Aplikasi Anda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/environments.html">Handling Multiple Environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/alternative_php.html">Alternatif Syntax PHP untuk File View</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/security.html">Keamanan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/styleguide.html">PHP Style Guide</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/index.html">Referensi Library</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/benchmark.html">Benchmarking Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/caching.html">Caching Driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/calendar.html">Calendaring Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/cart.html">Shopping Cart Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/config.html">Config Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/email.html">Email Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/encrypt.html">Encrypt Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/encryption.html">Encryption Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/file_uploading.html">File Uploading Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/form_validation.html">Form Validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/ftp.html">FTP Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/image_lib.html">Image Manipulation Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/input.html">Input Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/javascript.html">Javascript Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/language.html">Language Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/loader.html">Loader Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/migration.html">Migrations Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/output.html">Output Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/pagination.html">Pagination Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/parser.html">Template Parser Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/security.html">Security Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/sessions.html">Session Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/table.html">HTML Table Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/trackback.html">Trackback Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/typography.html">Typography Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/unit_testing.html">Unit Testing Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html">URI Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/user_agent.html">User Agent Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/xmlrpc.html">XML-RPC and XML-RPC Server Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/zip.html">Zip Encoding Class</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../database/index.html">Referensi Database</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../database/examples.html">Quick Start: Contoh Penggunaan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/configuration.html">Konfigurasi Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/connecting.html">Menghubungkan ke Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/queries.html">Menjalankan Queries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/results.html">Menampilkan Hasil Query</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/helpers.html">Fungsi-fungsi Query Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/query_builder.html">Query Builder Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Transactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Mendapatkan MetaData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Memanggil Custom Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/caching.html">Query Caching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/forge.html">Manipulasi Database dengan Database Forge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/utilities.html">Database Utilities Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/db_driver_reference.html">Referensi Database Driver</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Referensi Helper</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="array_helper.html">Array Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="captcha_helper.html">CAPTCHA Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cookie_helper.html">Cookie Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="date_helper.html">Date Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="directory_helper.html">Directory Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="download_helper.html">Download Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="email_helper.html">Email Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="file_helper.html">File Helper</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Form Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="html_helper.html">HTML Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inflector_helper.html">Inflector Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="language_helper.html">Language Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="number_helper.html">Number Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="path_helper.html">Path Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security_helper.html">Security Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smiley_helper.html">Smiley Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="string_helper.html">String Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="text_helper.html">Text Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typography_helper.html">Typography Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="url_helper.html">URL Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="xml_helper.html">XML Helper</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">CodeIgniter</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+        <li><a href="index.html">Referensi Helper</a> &raquo;</li>
+      
+    <li>Form Helper</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+    <div style="float:right;margin-left:5px;" id="closeMe">
+      <img title="Classic Layout" alt="classic layout" src="data:image/gif;base64,R0lGODlhFAAUAJEAAAAAADMzM////wAAACH5BAUUAAIALAAAAAAUABQAAAImlI+py+0PU5gRBRDM3DxbWoXis42X13USOLauUIqnlsaH/eY6UwAAOw==" />
+    </div>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="form-helper">
+<h1>Form Helper<a class="headerlink" href="#form-helper" title="Link permanen untuk headline ini">¶</a></h1>
+<p>The Form Helper file contains functions that assist in working with
+forms.</p>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#loading-this-helper" id="id1">Loading this Helper</a></p></li>
+<li><p><a class="reference internal" href="#escaping-field-values" id="id2">Escaping field values</a></p></li>
+<li><p><a class="reference internal" href="#available-functions" id="id3">Available Functions</a></p></li>
+</ul>
+</div>
+<div class="custom-index container"></div><div class="section" id="loading-this-helper">
+<h2><a class="toc-backref" href="#id1">Loading this Helper</a><a class="headerlink" href="#loading-this-helper" title="Link permanen untuk headline ini">¶</a></h2>
+<p>This helper is loaded using the following code:</p>
+<div class="highlight-ci notranslate"><div class="highlight"><pre><span></span>$this-&gt;load-&gt;helper(&#39;form&#39;);
+</pre></div>
+</div>
+</div>
+<div class="section" id="escaping-field-values">
+<h2><a class="toc-backref" href="#id2">Escaping field values</a><a class="headerlink" href="#escaping-field-values" title="Link permanen untuk headline ini">¶</a></h2>
+<p>You may need to use HTML and characters such as quotes within your form
+elements. In order to do that safely, you'll need to use
+<a class="reference internal" href="../general/common_functions.html"><span class="doc">common function</span></a>
+<code class="xref py py-func docutils literal notranslate"><span class="pre">html_escape()</span></code>.</p>
+<p>Consider the following example:</p>
+<div class="highlight-ci notranslate"><div class="highlight"><pre><span></span>$string = &#39;Here is a string containing &quot;quoted&quot; text.&#39;;
+
+&lt;input type=&quot;text&quot; name=&quot;myfield&quot; value=&quot;&lt;?php echo $string; ?&gt;&quot; /&gt;
+</pre></div>
+</div>
+<p>Since the above string contains a set of quotes, it will cause the form
+to break. The <a class="reference internal" href="../general/common_functions.html#html_escape" title="html_escape"><code class="xref php php-func docutils literal notranslate"><span class="pre">html_escape()</span></code></a> function converts HTML special
+characters so that it can be used safely:</p>
+<div class="highlight-ci notranslate"><div class="highlight"><pre><span></span>&lt;input type=&quot;text&quot; name=&quot;myfield&quot; value=&quot;&lt;?php echo html_escape($string); ?&gt;&quot; /&gt;
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Catatan</p>
+<p>If you use any of the form helper functions listed on this page,
+the form values will be automatically escaped, so there is no need
+to call this function. Use it only if you are creating your own
+form elements.</p>
+</div>
+</div>
+<div class="section" id="available-functions">
+<h2><a class="toc-backref" href="#id3">Available Functions</a><a class="headerlink" href="#available-functions" title="Link permanen untuk headline ini">¶</a></h2>
+<p>The following functions are available:</p>
+<dl class="function">
+<dt id="form_open">
+<code class="sig-name descname">form_open</code><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param">$action = ''</em><span class="optional">[</span>, <em class="sig-param">$attributes = ''</em><span class="optional">[</span>, <em class="sig-param">$hidden = array()</em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#form_open" title="Link permanen untuk definisi ini">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameter</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$action</strong> (<em>string</em>) -- Form action/target URI string</p></li>
+<li><p><strong>$attributes</strong> (<em>array</em>) -- HTML attributes</p></li>
+<li><p><strong>$hidden</strong> (<em>array</em>) -- An array of hidden fields' definitions</p></li>
+</ul>
+</dd>
+<dt class="field-even">Kembali</dt>
+<dd class="field-even"><p>An HTML form opening tag</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+<p>Creates an opening form tag with a base URL <strong>built from your config preferences</strong>.
+It will optionally let you add form attributes and hidden input fields, and
+will always add the <cite>accept-charset</cite> attribute based on the charset value in your
+config file.</p>
+<p>The main benefit of using this tag rather than hard coding your own HTML is that
+it permits your site to be more portable in the event your URLs ever change.</p>
+<p>Here's a simple example:</p>
+<div class="highlight-ci notranslate"><div class="highlight"><pre><span></span>echo form_open(&#39;email/send&#39;);
+</pre></div>
+</div>
+<p>The above example would create a form that points to your base URL plus the
+&quot;email/send&quot; URI segments, like this:</p>
+<div class="highlight-ci notranslate"><div class="highlight"><pre><span></span>&lt;form method=&quot;post&quot; accept-charset=&quot;utf-8&quot; action=&quot;http://example.com/index.php/email/send&quot;&gt;
+</pre></div>
+</div>
+<p><strong>Adding Attributes</strong></p>
+<blockquote>
+<div><p>Attributes can be added by passing an associative array to the second
+parameter, like this:</p>
+<div class="highlight-ci notranslate"><div class="highlight"><pre><span></span>$attributes = array(&#39;class&#39; =&gt; &#39;email&#39;, &#39;id&#39; =&gt; &#39;myform&#39;);
+echo form_open(&#39;email/send&#39;, $attributes);
+</pre></div>
+</div>
+<p>Alternatively, you can specify the second parameter as a string:</p>
+<div class="highlight-ci notranslate"><div class="highlight"><pre><span></span>echo form_open(&#39;email/send&#39;, &#39;class=&quot;email&quot; id=&quot;myform&quot;&#39;);
+</pre></div>
+</div>
+<p>The above examples would create a form similar to this:</p>
+<div class="highlight-ci notranslate"><div class="highlight"><pre><span></span>&lt;form method=&quot;post&quot; accept-charset=&quot;utf-8&quot; action=&quot;http://example.com/index.php/email/send&quot; class=&quot;email&quot; id=&quot;myform&quot;&gt;
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>Adding Hidden Input Fields</strong></p>
+<blockquote>
+<div><p>Hidden fields can be added by passing an associative array to the
+third parameter, like this:</p>
+<div class="highlight-ci notranslate"><div class="highlight"><pre><span></span>$hidden = array(&#39;username&#39; =&gt; &#39;Joe&#39;, &#39;member_id&#39; =&gt; &#39;234&#39;);
+echo form_open(&#39;email/send&#39;, &#39;&#39;, $hidden);
+</pre></div>
+</div>
+<p>You can skip the second parameter by passing any falsy value to it.</p>
+<p>The above example would create a form similar to this:</p>
+<div class="highlight-ci notranslate"><div class="highlight"><pre><span></span>&lt;form method=&quot;post&quot; accept-charset=&quot;utf-8&quot; action=&quot;http://example.com/index.php/email/send&quot;&gt;
+        &lt;input type=&quot;hidden&quot; name=&quot;username&quot; value=&quot;Joe&quot; /&gt;
+        &lt;input type=&quot;hidden&quot; name=&quot;member_id&quot; value=&quot;234&quot; /&gt;
+</pre></div>
+</div>
+</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="form_open_multipart">
+<code class="sig-name descname">form_open_multipart</code><span class="sig-paren">(</span><em class="sig-param">[$action = ''[, $attributes = array()[, $hidden = array()]]</em><span class="sig-paren">)</span><a class="headerlink" href="#form_open_multipart" title="Link permanen untuk definisi ini">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameter</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$action</strong> (<em>string</em>) -- Form action/target URI string</p></li>
+<li><p><strong>$attributes</strong> (<em>array</em>) -- HTML attributes</p></li>
+<li><p><strong>$hidden</strong> (<em>array</em>) -- An array of hidden fields' definitions</p></li>
+</ul>
+</dd>
+<dt class="field-even">Kembali</dt>
+<dd class="field-even"><p>An HTML multipart form opening tag</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+<p>This function is absolutely identical to <a class="reference internal" href="#form_open" title="form_open"><code class="xref php php-func docutils literal notranslate"><span class="pre">form_open()</span></code></a> above,
+except that it adds a <em>multipart</em> attribute, which is necessary if you
+would like to use the form to upload files with.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="form_hidden">
+<code class="sig-name descname">form_hidden</code><span class="sig-paren">(</span><em class="sig-param">$name</em><span class="optional">[</span>, <em class="sig-param">$value = ''</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#form_hidden" title="Link permanen untuk definisi ini">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameter</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$name</strong> (<em>string</em>) -- Field name</p></li>
+<li><p><strong>$value</strong> (<em>string</em>) -- Field value</p></li>
+</ul>
+</dd>
+<dt class="field-even">Kembali</dt>
+<dd class="field-even"><p>An HTML hidden input field tag</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+<p>Lets you generate hidden input fields. You can either submit a
+name/value string to create one field:</p>
+<div class="highlight-ci notranslate"><div class="highlight"><pre><span></span>form_hidden(&#39;username&#39;, &#39;johndoe&#39;);
+// Would produce: &lt;input type=&quot;hidden&quot; name=&quot;username&quot; value=&quot;johndoe&quot; /&gt;
+</pre></div>
+</div>
+<p>... or you can submit an associative array to create multiple fields:</p>
+<div class="highlight-ci notranslate"><div class="highlight"><pre><span></span>$data = array(
+        &#39;name&#39;  =&gt; &#39;John Doe&#39;,
+        &#39;email&#39; =&gt; &#39;john@example.com&#39;,
+        &#39;url&#39;   =&gt; &#39;http://example.com&#39;
+);
+
+echo form_hidden($data);
+
+/*
+        Would produce:
+        &lt;input type=&quot;hidden&quot; name=&quot;name&quot; value=&quot;John Doe&quot; /&gt;
+        &lt;input type=&quot;hidden&quot; name=&quot;email&quot; value=&quot;john@example.com&quot; /&gt;
+        &lt;input type=&quot;hidden&quot; name=&quot;url&quot; value=&quot;http://example.com&quot; /&gt;
+*/
+</pre></div>
+</div>
+<p>You can also pass an associative array to the value field:</p>
+<div class="highlight-ci notranslate"><div class="highlight"><pre><span></span>$data = array(
+        &#39;name&#39;  =&gt; &#39;John Doe&#39;,
+        &#39;email&#39; =&gt; &#39;john@example.com&#39;,
+        &#39;url&#39;   =&gt; &#39;http://example.com&#39;
+);
+
+echo form_hidden(&#39;my_array&#39;, $data);
+
+/*
+        Would produce:
+
+        &lt;input type=&quot;hidden&quot; name=&quot;my_array[name]&quot; value=&quot;John Doe&quot; /&gt;
+        &lt;input type=&quot;hidden&quot; name=&quot;my_array[email]&quot; value=&quot;john@example.com&quot; /&gt;
+        &lt;input type=&quot;hidden&quot; name=&quot;my_array[url]&quot; value=&quot;http://example.com&quot; /&gt;
+*/
+</pre></div>
+</div>
+<p>If you want to create hidden input fields with extra attributes:</p>
+<div class="highlight-ci notranslate"><div class="highlight"><pre><span></span>$data = array(
+        &#39;type&#39;  =&gt; &#39;hidden&#39;,
+        &#39;name&#39;  =&gt; &#39;email&#39;,
+        &#39;id&#39;    =&gt; &#39;hiddenemail&#39;,
+        &#39;value&#39; =&gt; &#39;john@example.com&#39;,
+        &#39;class&#39; =&gt; &#39;hiddenemail&#39;
+);
+
+echo form_input($data);
+
+/*
+        Would produce:
+
+        &lt;input type=&quot;hidden&quot; name=&quot;email&quot; value=&quot;john@example.com&quot; id=&quot;hiddenemail&quot; class=&quot;hiddenemail&quot; /&gt;
+*/
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="form_input">
+<code class="sig-name descname">form_input</code><span class="sig-paren">(</span><em class="sig-param">[$data = ''[, $value = ''[, $extra = '']]</em><span class="sig-paren">)</span><a class="headerlink" href="#form_input" title="Link permanen untuk definisi ini">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameter</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$data</strong> (<em>array</em>) -- Field attributes data</p></li>
+<li><p><strong>$value</strong> (<em>string</em>) -- Field value</p></li>
+<li><p><strong>$extra</strong> (<em>mixed</em>) -- Extra attributes to be added to the tag either as an array or a literal string</p></li>
+</ul>
+</dd>
+<dt class="field-even">Kembali</dt>
+<dd class="field-even"><p>An HTML text input field tag</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+<p>Lets you generate a standard text input field. You can minimally pass
+the field name and value in the first and second parameter:</p>
+<div class="highlight-ci notranslate"><div class="highlight"><pre><span></span>echo form_input(&#39;username&#39;, &#39;johndoe&#39;);
+</pre></div>
+</div>
+<p>Or you can pass an associative array containing any data you wish your
+form to contain:</p>
+<div class="highlight-ci notranslate"><div class="highlight"><pre><span></span>$data = array(
+        &#39;name&#39;          =&gt; &#39;username&#39;,
+        &#39;id&#39;            =&gt; &#39;username&#39;,
+        &#39;value&#39;         =&gt; &#39;johndoe&#39;,
+        &#39;maxlength&#39;     =&gt; &#39;100&#39;,
+        &#39;size&#39;          =&gt; &#39;50&#39;,
+        &#39;style&#39;         =&gt; &#39;width:50%&#39;
+);
+
+echo form_input($data);
+
+/*
+        Would produce:
+
+        &lt;input type=&quot;text&quot; name=&quot;username&quot; value=&quot;johndoe&quot; id=&quot;username&quot; maxlength=&quot;100&quot; size=&quot;50&quot; style=&quot;width:50%&quot;  /&gt;
+*/
+</pre></div>
+</div>
+<p>If you would like your form to contain some additional data, like
+JavaScript, you can pass it as a string in the third parameter:</p>
+<div class="highlight-ci notranslate"><div class="highlight"><pre><span></span>$js = &#39;onClick=&quot;some_function()&quot;&#39;;
+echo form_input(&#39;username&#39;, &#39;johndoe&#39;, $js);
+</pre></div>
+</div>
+<p>Or you can pass it as an array:</p>
+<div class="highlight-ci notranslate"><div class="highlight"><pre><span></span>$js = array(&#39;onClick&#39; =&gt; &#39;some_function();&#39;);
+echo form_input(&#39;username&#39;, &#39;johndoe&#39;, $js);
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="form_password">
+<code class="sig-name descname">form_password</code><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param">$data = ''</em><span class="optional">[</span>, <em class="sig-param">$value = ''</em><span class="optional">[</span>, <em class="sig-param">$extra = ''</em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#form_password" title="Link permanen untuk definisi ini">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameter</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$data</strong> (<em>array</em>) -- Field attributes data</p></li>
+<li><p><strong>$value</strong> (<em>string</em>) -- Field value</p></li>
+<li><p><strong>$extra</strong> (<em>mixed</em>) -- Extra attributes to be added to the tag either as an array or a literal string</p></li>
+</ul>
+</dd>
+<dt class="field-even">Kembali</dt>
+<dd class="field-even"><p>An HTML password input field tag</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+<p>This function is identical in all respects to the <a class="reference internal" href="#form_input" title="form_input"><code class="xref php php-func docutils literal notranslate"><span class="pre">form_input()</span></code></a>
+function above except that it uses the &quot;password&quot; input type.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="form_upload">
+<code class="sig-name descname">form_upload</code><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param">$data = ''</em><span class="optional">[</span>, <em class="sig-param">$value = ''</em><span class="optional">[</span>, <em class="sig-param">$extra = ''</em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#form_upload" title="Link permanen untuk definisi ini">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameter</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$data</strong> (<em>array</em>) -- Field attributes data</p></li>
+<li><p><strong>$value</strong> (<em>string</em>) -- Field value</p></li>
+<li><p><strong>$extra</strong> (<em>mixed</em>) -- Extra attributes to be added to the tag either as an array or a literal string</p></li>
+</ul>
+</dd>
+<dt class="field-even">Kembali</dt>
+<dd class="field-even"><p>An HTML file upload input field tag</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+<p>This function is identical in all respects to the <a class="reference internal" href="#form_input" title="form_input"><code class="xref php php-func docutils literal notranslate"><span class="pre">form_input()</span></code></a>
+function above except that it uses the &quot;file&quot; input type, allowing it to
+be used to upload files.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="form_textarea">
+<code class="sig-name descname">form_textarea</code><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param">$data = ''</em><span class="optional">[</span>, <em class="sig-param">$value = ''</em><span class="optional">[</span>, <em class="sig-param">$extra = ''</em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#form_textarea" title="Link permanen untuk definisi ini">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameter</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$data</strong> (<em>array</em>) -- Field attributes data</p></li>
+<li><p><strong>$value</strong> (<em>string</em>) -- Field value</p></li>
+<li><p><strong>$extra</strong> (<em>mixed</em>) -- Extra attributes to be added to the tag either as an array or a literal string</p></li>
+</ul>
+</dd>
+<dt class="field-even">Kembali</dt>
+<dd class="field-even"><p>An HTML textarea tag</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+<p>This function is identical in all respects to the <a class="reference internal" href="#form_input" title="form_input"><code class="xref php php-func docutils literal notranslate"><span class="pre">form_input()</span></code></a>
+function above except that it generates a &quot;textarea&quot; type.</p>
+<div class="admonition note">
+<p class="admonition-title">Catatan</p>
+<p>Instead of the <em>maxlength</em> and <em>size</em> attributes in the above example,
+you will instead specify <em>rows</em> and <em>cols</em>.</p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="form_dropdown">
+<code class="sig-name descname">form_dropdown</code><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param">$name = ''</em><span class="optional">[</span>, <em class="sig-param">$options = array()</em><span class="optional">[</span>, <em class="sig-param">$selected = array()</em><span class="optional">[</span>, <em class="sig-param">$extra = ''</em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#form_dropdown" title="Link permanen untuk definisi ini">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameter</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$name</strong> (<em>string</em>) -- Field name</p></li>
+<li><p><strong>$options</strong> (<em>array</em>) -- An associative array of options to be listed</p></li>
+<li><p><strong>$selected</strong> (<em>array</em>) -- List of fields to mark with the <em>selected</em> attribute</p></li>
+<li><p><strong>$extra</strong> (<em>mixed</em>) -- Extra attributes to be added to the tag either as an array or a literal string</p></li>
+</ul>
+</dd>
+<dt class="field-even">Kembali</dt>
+<dd class="field-even"><p>An HTML dropdown select field tag</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+<p>Lets you create a standard drop-down field. The first parameter will
+contain the name of the field, the second parameter will contain an
+associative array of options, and the third parameter will contain the
+value you wish to be selected. You can also pass an array of multiple
+items through the third parameter, and CodeIgniter will create a
+multiple select for you.</p>
+<p>Example:</p>
+<div class="highlight-ci notranslate"><div class="highlight"><pre><span></span>$options = array(
+        &#39;small&#39;         =&gt; &#39;Small Shirt&#39;,
+        &#39;med&#39;           =&gt; &#39;Medium Shirt&#39;,
+        &#39;large&#39;         =&gt; &#39;Large Shirt&#39;,
+        &#39;xlarge&#39;        =&gt; &#39;Extra Large Shirt&#39;,
+);
+
+$shirts_on_sale = array(&#39;small&#39;, &#39;large&#39;);
+echo form_dropdown(&#39;shirts&#39;, $options, &#39;large&#39;);
+
+/*
+        Would produce:
+
+        &lt;select name=&quot;shirts&quot;&gt;
+                &lt;option value=&quot;small&quot;&gt;Small Shirt&lt;/option&gt;
+                &lt;option value=&quot;med&quot;&gt;Medium  Shirt&lt;/option&gt;
+                &lt;option value=&quot;large&quot; selected=&quot;selected&quot;&gt;Large Shirt&lt;/option&gt;
+                &lt;option value=&quot;xlarge&quot;&gt;Extra Large Shirt&lt;/option&gt;
+        &lt;/select&gt;
+*/
+
+echo form_dropdown(&#39;shirts&#39;, $options, $shirts_on_sale);
+
+/*
+        Would produce:
+
+        &lt;select name=&quot;shirts&quot; multiple=&quot;multiple&quot;&gt;
+                &lt;option value=&quot;small&quot; selected=&quot;selected&quot;&gt;Small Shirt&lt;/option&gt;
+                &lt;option value=&quot;med&quot;&gt;Medium  Shirt&lt;/option&gt;
+                &lt;option value=&quot;large&quot; selected=&quot;selected&quot;&gt;Large Shirt&lt;/option&gt;
+                &lt;option value=&quot;xlarge&quot;&gt;Extra Large Shirt&lt;/option&gt;
+        &lt;/select&gt;
+*/
+</pre></div>
+</div>
+<p>If you would like the opening &lt;select&gt; to contain additional data, like
+an id attribute or JavaScript, you can pass it as a string in the fourth
+parameter:</p>
+<div class="highlight-ci notranslate"><div class="highlight"><pre><span></span>$js = &#39;id=&quot;shirts&quot; onChange=&quot;some_function();&quot;&#39;;
+echo form_dropdown(&#39;shirts&#39;, $options, &#39;large&#39;, $js);
+</pre></div>
+</div>
+<p>Or you can pass it as an array:</p>
+<div class="highlight-ci notranslate"><div class="highlight"><pre><span></span>$js = array(
+        &#39;id&#39;       =&gt; &#39;shirts&#39;,
+        &#39;onChange&#39; =&gt; &#39;some_function();&#39;
+);
+echo form_dropdown(&#39;shirts&#39;, $options, &#39;large&#39;, $js);
+</pre></div>
+</div>
+<p>If the array passed as <code class="docutils literal notranslate"><span class="pre">$options</span></code> is a multidimensional array, then
+<code class="docutils literal notranslate"><span class="pre">form_dropdown()</span></code> will produce an &lt;optgroup&gt; with the array key as the
+label.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="form_multiselect">
+<code class="sig-name descname">form_multiselect</code><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param">$name = ''</em><span class="optional">[</span>, <em class="sig-param">$options = array()</em><span class="optional">[</span>, <em class="sig-param">$selected = array()</em><span class="optional">[</span>, <em class="sig-param">$extra = ''</em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#form_multiselect" title="Link permanen untuk definisi ini">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameter</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$name</strong> (<em>string</em>) -- Field name</p></li>
+<li><p><strong>$options</strong> (<em>array</em>) -- An associative array of options to be listed</p></li>
+<li><p><strong>$selected</strong> (<em>array</em>) -- List of fields to mark with the <em>selected</em> attribute</p></li>
+<li><p><strong>$extra</strong> (<em>mixed</em>) -- Extra attributes to be added to the tag either as an array or a literal string</p></li>
+</ul>
+</dd>
+<dt class="field-even">Kembali</dt>
+<dd class="field-even"><p>An HTML dropdown multiselect field tag</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+<p>Lets you create a standard multiselect field. The first parameter will
+contain the name of the field, the second parameter will contain an
+associative array of options, and the third parameter will contain the
+value or values you wish to be selected.</p>
+<p>The parameter usage is identical to using <a class="reference internal" href="#form_dropdown" title="form_dropdown"><code class="xref php php-func docutils literal notranslate"><span class="pre">form_dropdown()</span></code></a> above,
+except of course that the name of the field will need to use POST array
+syntax, e.g. foo[].</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="form_fieldset">
+<code class="sig-name descname">form_fieldset</code><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param">$legend_text = ''</em><span class="optional">[</span>, <em class="sig-param">$attributes = array()</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#form_fieldset" title="Link permanen untuk definisi ini">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameter</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$legend_text</strong> (<em>string</em>) -- Text to put in the &lt;legend&gt; tag</p></li>
+<li><p><strong>$attributes</strong> (<em>array</em>) -- Attributes to be set on the &lt;fieldset&gt; tag</p></li>
+</ul>
+</dd>
+<dt class="field-even">Kembali</dt>
+<dd class="field-even"><p>An HTML fieldset opening tag</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+<p>Lets you generate fieldset/legend fields.</p>
+<p>Example:</p>
+<div class="highlight-ci notranslate"><div class="highlight"><pre><span></span>echo form_fieldset(&#39;Address Information&#39;);
+echo &quot;&lt;p&gt;fieldset content here&lt;/p&gt;\n&quot;;
+echo form_fieldset_close();
+
+/*
+        Produces:
+
+                &lt;fieldset&gt;
+                        &lt;legend&gt;Address Information&lt;/legend&gt;
+                                &lt;p&gt;form content here&lt;/p&gt;
+                &lt;/fieldset&gt;
+*/
+</pre></div>
+</div>
+<p>Similar to other functions, you can submit an associative array in the
+second parameter if you prefer to set additional attributes:</p>
+<div class="highlight-ci notranslate"><div class="highlight"><pre><span></span>$attributes = array(
+        &#39;id&#39;    =&gt; &#39;address_info&#39;,
+        &#39;class&#39; =&gt; &#39;address_info&#39;
+);
+
+echo form_fieldset(&#39;Address Information&#39;, $attributes);
+echo &quot;&lt;p&gt;fieldset content here&lt;/p&gt;\n&quot;;
+echo form_fieldset_close();
+
+/*
+        Produces:
+
+        &lt;fieldset id=&quot;address_info&quot; class=&quot;address_info&quot;&gt;
+                &lt;legend&gt;Address Information&lt;/legend&gt;
+                &lt;p&gt;form content here&lt;/p&gt;
+        &lt;/fieldset&gt;
+*/
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="form_fieldset_close">
+<code class="sig-name descname">form_fieldset_close</code><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param">$extra = ''</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#form_fieldset_close" title="Link permanen untuk definisi ini">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameter</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$extra</strong> (<em>string</em>) -- Anything to append after the closing tag, <em>as is</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Kembali</dt>
+<dd class="field-even"><p>An HTML fieldset closing tag</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+<p>Produces a closing &lt;/fieldset&gt; tag. The only advantage to using this
+function is it permits you to pass data to it which will be added below
+the tag. For example</p>
+<div class="highlight-ci notranslate"><div class="highlight"><pre><span></span>$string = &#39;&lt;/div&gt;&lt;/div&gt;&#39;;
+echo form_fieldset_close($string);
+// Would produce: &lt;/fieldset&gt;&lt;/div&gt;&lt;/div&gt;
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="form_checkbox">
+<code class="sig-name descname">form_checkbox</code><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param">$data = ''</em><span class="optional">[</span>, <em class="sig-param">$value = ''</em><span class="optional">[</span>, <em class="sig-param">$checked = FALSE</em><span class="optional">[</span>, <em class="sig-param">$extra = ''</em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#form_checkbox" title="Link permanen untuk definisi ini">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameter</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$data</strong> (<em>array</em>) -- Field attributes data</p></li>
+<li><p><strong>$value</strong> (<em>string</em>) -- Field value</p></li>
+<li><p><strong>$checked</strong> (<em>bool</em>) -- Whether to mark the checkbox as being <em>checked</em></p></li>
+<li><p><strong>$extra</strong> (<em>mixed</em>) -- Extra attributes to be added to the tag either as an array or a literal string</p></li>
+</ul>
+</dd>
+<dt class="field-even">Kembali</dt>
+<dd class="field-even"><p>An HTML checkbox input tag</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+<p>Lets you generate a checkbox field. Simple example:</p>
+<div class="highlight-ci notranslate"><div class="highlight"><pre><span></span>echo form_checkbox(&#39;newsletter&#39;, &#39;accept&#39;, TRUE);
+// Would produce:  &lt;input type=&quot;checkbox&quot; name=&quot;newsletter&quot; value=&quot;accept&quot; checked=&quot;checked&quot; /&gt;
+</pre></div>
+</div>
+<p>The third parameter contains a boolean TRUE/FALSE to determine whether
+the box should be checked or not.</p>
+<p>Similar to the other form functions in this helper, you can also pass an
+array of attributes to the function:</p>
+<div class="highlight-ci notranslate"><div class="highlight"><pre><span></span>$data = array(
+        &#39;name&#39;          =&gt; &#39;newsletter&#39;,
+        &#39;id&#39;            =&gt; &#39;newsletter&#39;,
+        &#39;value&#39;         =&gt; &#39;accept&#39;,
+        &#39;checked&#39;       =&gt; TRUE,
+        &#39;style&#39;         =&gt; &#39;margin:10px&#39;
+);
+
+echo form_checkbox($data);
+// Would produce: &lt;input type=&quot;checkbox&quot; name=&quot;newsletter&quot; id=&quot;newsletter&quot; value=&quot;accept&quot; checked=&quot;checked&quot; style=&quot;margin:10px&quot; /&gt;
+</pre></div>
+</div>
+<p>Also as with other functions, if you would like the tag to contain
+additional data like JavaScript, you can pass it as a string in the
+fourth parameter:</p>
+<div class="highlight-ci notranslate"><div class="highlight"><pre><span></span>$js = &#39;onClick=&quot;some_function()&quot;&#39;;
+echo form_checkbox(&#39;newsletter&#39;, &#39;accept&#39;, TRUE, $js)
+</pre></div>
+</div>
+<p>Or you can pass it as an array:</p>
+<div class="highlight-ci notranslate"><div class="highlight"><pre><span></span>$js = array(&#39;onClick&#39; =&gt; &#39;some_function();&#39;);
+echo form_checkbox(&#39;newsletter&#39;, &#39;accept&#39;, TRUE, $js)
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="form_radio">
+<code class="sig-name descname">form_radio</code><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param">$data = ''</em><span class="optional">[</span>, <em class="sig-param">$value = ''</em><span class="optional">[</span>, <em class="sig-param">$checked = FALSE</em><span class="optional">[</span>, <em class="sig-param">$extra = ''</em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#form_radio" title="Link permanen untuk definisi ini">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameter</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$data</strong> (<em>array</em>) -- Field attributes data</p></li>
+<li><p><strong>$value</strong> (<em>string</em>) -- Field value</p></li>
+<li><p><strong>$checked</strong> (<em>bool</em>) -- Whether to mark the radio button as being <em>checked</em></p></li>
+<li><p><strong>$extra</strong> (<em>mixed</em>) -- Extra attributes to be added to the tag either as an array or a literal string</p></li>
+</ul>
+</dd>
+<dt class="field-even">Kembali</dt>
+<dd class="field-even"><p>An HTML radio input tag</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+<p>This function is identical in all respects to the <a class="reference internal" href="#form_checkbox" title="form_checkbox"><code class="xref php php-func docutils literal notranslate"><span class="pre">form_checkbox()</span></code></a>
+function above except that it uses the &quot;radio&quot; input type.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="form_label">
+<code class="sig-name descname">form_label</code><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param">$label_text = ''</em><span class="optional">[</span>, <em class="sig-param">$id = ''</em><span class="optional">[</span>, <em class="sig-param">$attributes = array()</em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#form_label" title="Link permanen untuk definisi ini">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameter</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$label_text</strong> (<em>string</em>) -- Text to put in the &lt;label&gt; tag</p></li>
+<li><p><strong>$id</strong> (<em>string</em>) -- ID of the form element that we're making a label for</p></li>
+<li><p><strong>$attributes</strong> (<em>string</em>) -- HTML attributes</p></li>
+</ul>
+</dd>
+<dt class="field-even">Kembali</dt>
+<dd class="field-even"><p>An HTML field label tag</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+<p>Lets you generate a &lt;label&gt;. Simple example:</p>
+<div class="highlight-ci notranslate"><div class="highlight"><pre><span></span>echo form_label(&#39;What is your Name&#39;, &#39;username&#39;);
+// Would produce:  &lt;label for=&quot;username&quot;&gt;What is your Name&lt;/label&gt;
+</pre></div>
+</div>
+<p>Similar to other functions, you can submit an associative array in the
+third parameter if you prefer to set additional attributes.</p>
+<p>Example:</p>
+<div class="highlight-ci notranslate"><div class="highlight"><pre><span></span>$attributes = array(
+        &#39;class&#39; =&gt; &#39;mycustomclass&#39;,
+        &#39;style&#39; =&gt; &#39;color: #000;&#39;
+);
+
+echo form_label(&#39;What is your Name&#39;, &#39;username&#39;, $attributes);
+// Would produce:  &lt;label for=&quot;username&quot; class=&quot;mycustomclass&quot; style=&quot;color: #000;&quot;&gt;What is your Name&lt;/label&gt;
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="form_submit">
+<code class="sig-name descname">form_submit</code><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param">$data = ''</em><span class="optional">[</span>, <em class="sig-param">$value = ''</em><span class="optional">[</span>, <em class="sig-param">$extra = ''</em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#form_submit" title="Link permanen untuk definisi ini">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameter</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$data</strong> (<em>string</em>) -- Button name</p></li>
+<li><p><strong>$value</strong> (<em>string</em>) -- Button value</p></li>
+<li><p><strong>$extra</strong> (<em>mixed</em>) -- Extra attributes to be added to the tag either as an array or a literal string</p></li>
+</ul>
+</dd>
+<dt class="field-even">Kembali</dt>
+<dd class="field-even"><p>An HTML input submit tag</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+<p>Lets you generate a standard submit button. Simple example:</p>
+<div class="highlight-ci notranslate"><div class="highlight"><pre><span></span>echo form_submit(&#39;mysubmit&#39;, &#39;Submit Post!&#39;);
+// Would produce:  &lt;input type=&quot;submit&quot; name=&quot;mysubmit&quot; value=&quot;Submit Post!&quot; /&gt;
+</pre></div>
+</div>
+<p>Similar to other functions, you can submit an associative array in the
+first parameter if you prefer to set your own attributes. The third
+parameter lets you add extra data to your form, like JavaScript.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="form_reset">
+<code class="sig-name descname">form_reset</code><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param">$data = ''</em><span class="optional">[</span>, <em class="sig-param">$value = ''</em><span class="optional">[</span>, <em class="sig-param">$extra = ''</em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#form_reset" title="Link permanen untuk definisi ini">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameter</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$data</strong> (<em>string</em>) -- Button name</p></li>
+<li><p><strong>$value</strong> (<em>string</em>) -- Button value</p></li>
+<li><p><strong>$extra</strong> (<em>mixed</em>) -- Extra attributes to be added to the tag either as an array or a literal string</p></li>
+</ul>
+</dd>
+<dt class="field-even">Kembali</dt>
+<dd class="field-even"><p>An HTML input reset button tag</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+<p>Lets you generate a standard reset button. Use is identical to
+<code class="xref py py-func docutils literal notranslate"><span class="pre">form_submit()</span></code>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="form_button">
+<code class="sig-name descname">form_button</code><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param">$data = ''</em><span class="optional">[</span>, <em class="sig-param">$content = ''</em><span class="optional">[</span>, <em class="sig-param">$extra = ''</em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#form_button" title="Link permanen untuk definisi ini">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameter</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$data</strong> (<em>string</em>) -- Button name</p></li>
+<li><p><strong>$content</strong> (<em>string</em>) -- Button label</p></li>
+<li><p><strong>$extra</strong> (<em>mixed</em>) -- Extra attributes to be added to the tag either as an array or a literal string</p></li>
+</ul>
+</dd>
+<dt class="field-even">Kembali</dt>
+<dd class="field-even"><p>An HTML button tag</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+<p>Lets you generate a standard button element. You can minimally pass the
+button name and content in the first and second parameter:</p>
+<div class="highlight-ci notranslate"><div class="highlight"><pre><span></span>echo form_button(&#39;name&#39;,&#39;content&#39;);
+// Would produce: &lt;button name=&quot;name&quot; type=&quot;button&quot;&gt;Content&lt;/button&gt;
+</pre></div>
+</div>
+<p>Or you can pass an associative array containing any data you wish your
+form to contain:</p>
+<div class="highlight-ci notranslate"><div class="highlight"><pre><span></span>$data = array(
+        &#39;name&#39;          =&gt; &#39;button&#39;,
+        &#39;id&#39;            =&gt; &#39;button&#39;,
+        &#39;value&#39;         =&gt; &#39;true&#39;,
+        &#39;type&#39;          =&gt; &#39;reset&#39;,
+        &#39;content&#39;       =&gt; &#39;Reset&#39;
+);
+
+echo form_button($data);
+// Would produce: &lt;button name=&quot;button&quot; id=&quot;button&quot; value=&quot;true&quot; type=&quot;reset&quot;&gt;Reset&lt;/button&gt;
+</pre></div>
+</div>
+<p>If you would like your form to contain some additional data, like
+JavaScript, you can pass it as a string in the third parameter:</p>
+<div class="highlight-ci notranslate"><div class="highlight"><pre><span></span>$js = &#39;onClick=&quot;some_function()&quot;&#39;;
+echo form_button(&#39;mybutton&#39;, &#39;Click Me&#39;, $js);
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="form_close">
+<code class="sig-name descname">form_close</code><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param">$extra = ''</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#form_close" title="Link permanen untuk definisi ini">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameter</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$extra</strong> (<em>string</em>) -- Anything to append after the closing tag, <em>as is</em></p></li>
+</ul>
+</dd>
+<dt class="field-even">Kembali</dt>
+<dd class="field-even"><p>An HTML form closing tag</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+<p>Produces a closing &lt;/form&gt; tag. The only advantage to using this
+function is it permits you to pass data to it which will be added below
+the tag. For example:</p>
+<div class="highlight-ci notranslate"><div class="highlight"><pre><span></span>$string = &#39;&lt;/div&gt;&lt;/div&gt;&#39;;
+echo form_close($string);
+// Would produce:  &lt;/form&gt; &lt;/div&gt;&lt;/div&gt;
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="set_value">
+<code class="sig-name descname">set_value</code><span class="sig-paren">(</span><em class="sig-param">$field</em><span class="optional">[</span>, <em class="sig-param">$default = ''</em><span class="optional">[</span>, <em class="sig-param">$html_escape = TRUE</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#set_value" title="Link permanen untuk definisi ini">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameter</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$field</strong> (<em>string</em>) -- Field name</p></li>
+<li><p><strong>$default</strong> (<em>string</em>) -- Default value</p></li>
+<li><p><strong>$html_escape</strong> (<em>bool</em>) -- Whether to turn off HTML escaping of the value</p></li>
+</ul>
+</dd>
+<dt class="field-even">Kembali</dt>
+<dd class="field-even"><p>Field value</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+<p>Permits you to set the value of an input form or textarea. You must
+supply the field name via the first parameter of the function. The
+second (optional) parameter allows you to set a default value for the
+form. The third (optional) parameter allows you to turn off HTML escaping
+of the value, in case you need to use this function in combination with
+i.e. <a class="reference internal" href="#form_input" title="form_input"><code class="xref php php-func docutils literal notranslate"><span class="pre">form_input()</span></code></a> and avoid double-escaping.</p>
+<p>Example:</p>
+<div class="highlight-ci notranslate"><div class="highlight"><pre><span></span>&lt;input type=&quot;text&quot; name=&quot;quantity&quot; value=&quot;&lt;?php echo set_value(&#39;quantity&#39;, &#39;0&#39;); ?&gt;&quot; size=&quot;50&quot; /&gt;
+</pre></div>
+</div>
+<p>The above form will show &quot;0&quot; when loaded for the first time.</p>
+<div class="admonition note">
+<p class="admonition-title">Catatan</p>
+<p>If you've loaded the <a class="reference internal" href="../libraries/form_validation.html"><span class="doc">Form Validation Library</span></a> and
+have set a validation rule for the field name in use with this helper, then it will
+forward the call to the <a class="reference internal" href="../libraries/form_validation.html"><span class="doc">Form Validation Library</span></a>'s
+own <code class="docutils literal notranslate"><span class="pre">set_value()</span></code> method. Otherwise, this function looks in <code class="docutils literal notranslate"><span class="pre">$_POST</span></code> for the
+field value.</p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="set_select">
+<code class="sig-name descname">set_select</code><span class="sig-paren">(</span><em class="sig-param">$field</em><span class="optional">[</span>, <em class="sig-param">$value = ''</em><span class="optional">[</span>, <em class="sig-param">$default = FALSE</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#set_select" title="Link permanen untuk definisi ini">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameter</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$field</strong> (<em>string</em>) -- Field name</p></li>
+<li><p><strong>$value</strong> (<em>string</em>) -- Value to check for</p></li>
+<li><p><strong>$default</strong> (<em>string</em>) -- Whether the value is also a default one</p></li>
+</ul>
+</dd>
+<dt class="field-even">Kembali</dt>
+<dd class="field-even"><p>'selected' attribute or an empty string</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+<p>If you use a &lt;select&gt; menu, this function permits you to display the
+menu item that was selected.</p>
+<p>The first parameter must contain the name of the select menu, the second
+parameter must contain the value of each item, and the third (optional)
+parameter lets you set an item as the default (use boolean TRUE/FALSE).</p>
+<p>Example:</p>
+<div class="highlight-ci notranslate"><div class="highlight"><pre><span></span>&lt;select name=&quot;myselect&quot;&gt;
+        &lt;option value=&quot;one&quot; &lt;?php echo  set_select(&#39;myselect&#39;, &#39;one&#39;, TRUE); ?&gt; &gt;One&lt;/option&gt;
+        &lt;option value=&quot;two&quot; &lt;?php echo  set_select(&#39;myselect&#39;, &#39;two&#39;); ?&gt; &gt;Two&lt;/option&gt;
+        &lt;option value=&quot;three&quot; &lt;?php echo  set_select(&#39;myselect&#39;, &#39;three&#39;); ?&gt; &gt;Three&lt;/option&gt;
+&lt;/select&gt;
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="set_checkbox">
+<code class="sig-name descname">set_checkbox</code><span class="sig-paren">(</span><em class="sig-param">$field</em><span class="optional">[</span>, <em class="sig-param">$value = ''</em><span class="optional">[</span>, <em class="sig-param">$default = FALSE</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#set_checkbox" title="Link permanen untuk definisi ini">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameter</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$field</strong> (<em>string</em>) -- Field name</p></li>
+<li><p><strong>$value</strong> (<em>string</em>) -- Value to check for</p></li>
+<li><p><strong>$default</strong> (<em>string</em>) -- Whether the value is also a default one</p></li>
+</ul>
+</dd>
+<dt class="field-even">Kembali</dt>
+<dd class="field-even"><p>'checked' attribute or an empty string</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+<p>Permits you to display a checkbox in the state it was submitted.</p>
+<p>The first parameter must contain the name of the checkbox, the second
+parameter must contain its value, and the third (optional) parameter
+lets you set an item as the default (use boolean TRUE/FALSE).</p>
+<p>Example:</p>
+<div class="highlight-ci notranslate"><div class="highlight"><pre><span></span>&lt;input type=&quot;checkbox&quot; name=&quot;mycheck&quot; value=&quot;1&quot; &lt;?php echo set_checkbox(&#39;mycheck&#39;, &#39;1&#39;); ?&gt; /&gt;
+&lt;input type=&quot;checkbox&quot; name=&quot;mycheck&quot; value=&quot;2&quot; &lt;?php echo set_checkbox(&#39;mycheck&#39;, &#39;2&#39;); ?&gt; /&gt;
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="set_radio">
+<code class="sig-name descname">set_radio</code><span class="sig-paren">(</span><em class="sig-param">$field</em><span class="optional">[</span>, <em class="sig-param">$value = ''</em><span class="optional">[</span>, <em class="sig-param">$default = FALSE</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#set_radio" title="Link permanen untuk definisi ini">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameter</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$field</strong> (<em>string</em>) -- Field name</p></li>
+<li><p><strong>$value</strong> (<em>string</em>) -- Value to check for</p></li>
+<li><p><strong>$default</strong> (<em>string</em>) -- Whether the value is also a default one</p></li>
+</ul>
+</dd>
+<dt class="field-even">Kembali</dt>
+<dd class="field-even"><p>'checked' attribute or an empty string</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+<p>Permits you to display radio buttons in the state they were submitted.
+This function is identical to the <a class="reference internal" href="#set_checkbox" title="set_checkbox"><code class="xref php php-func docutils literal notranslate"><span class="pre">set_checkbox()</span></code></a> function above.</p>
+<p>Example:</p>
+<div class="highlight-ci notranslate"><div class="highlight"><pre><span></span>&lt;input type=&quot;radio&quot; name=&quot;myradio&quot; value=&quot;1&quot; &lt;?php echo  set_radio(&#39;myradio&#39;, &#39;1&#39;, TRUE); ?&gt; /&gt;
+&lt;input type=&quot;radio&quot; name=&quot;myradio&quot; value=&quot;2&quot; &lt;?php echo  set_radio(&#39;myradio&#39;, &#39;2&#39;); ?&gt; /&gt;
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Catatan</p>
+<p>If you are using the Form Validation class, you must always specify
+a rule for your field, even if empty, in order for the <code class="docutils literal notranslate"><span class="pre">set_*()</span></code>
+functions to work. This is because if a Form Validation object is
+defined, the control for <code class="docutils literal notranslate"><span class="pre">set_*()</span></code> is handed over to a method of the
+class instead of the generic helper function.</p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="form_error">
+<code class="sig-name descname">form_error</code><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param">$field = ''</em><span class="optional">[</span>, <em class="sig-param">$prefix = ''</em><span class="optional">[</span>, <em class="sig-param">$suffix = ''</em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#form_error" title="Link permanen untuk definisi ini">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameter</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$field</strong> (<em>string</em>) -- Field name</p></li>
+<li><p><strong>$prefix</strong> (<em>string</em>) -- Error opening tag</p></li>
+<li><p><strong>$suffix</strong> (<em>string</em>) -- Error closing tag</p></li>
+</ul>
+</dd>
+<dt class="field-even">Kembali</dt>
+<dd class="field-even"><p>HTML-formatted form validation error message(s)</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+<p>Returns a validation error message from the <a class="reference internal" href="../libraries/form_validation.html"><span class="doc">Form Validation Library</span></a>, associated with the specified field name.
+You can optionally specify opening and closing tag(s) to put around the error
+message.</p>
+<p>Example:</p>
+<div class="highlight-ci notranslate"><div class="highlight"><pre><span></span>// Assuming that the &#39;username&#39; field value was incorrect:
+echo form_error(&#39;myfield&#39;, &#39;&lt;div class=&quot;error&quot;&gt;&#39;, &#39;&lt;/div&gt;&#39;);
+
+// Would produce: &lt;div class=&quot;error&quot;&gt;Error message associated with the &quot;username&quot; field.&lt;/div&gt;
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="validation_errors">
+<code class="sig-name descname">validation_errors</code><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param">$prefix = ''</em><span class="optional">[</span>, <em class="sig-param">$suffix = ''</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#validation_errors" title="Link permanen untuk definisi ini">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameter</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$prefix</strong> (<em>string</em>) -- Error opening tag</p></li>
+<li><p><strong>$suffix</strong> (<em>string</em>) -- Error closing tag</p></li>
+</ul>
+</dd>
+<dt class="field-even">Kembali</dt>
+<dd class="field-even"><p>HTML-formatted form validation error message(s)</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+<p>Similarly to the <a class="reference internal" href="#form_error" title="form_error"><code class="xref php php-func docutils literal notranslate"><span class="pre">form_error()</span></code></a> function, returns all validation
+error messages produced by the <a class="reference internal" href="../libraries/form_validation.html"><span class="doc">Form Validation Library</span></a>, with optional opening and closing tags
+around each of the messages.</p>
+<p>Example:</p>
+<div class="highlight-ci notranslate"><div class="highlight"><pre><span></span>echo validation_errors(&#39;&lt;span class=&quot;error&quot;&gt;&#39;, &#39;&lt;/span&gt;&#39;);
+
+/*
+        Would produce, e.g.:
+
+        &lt;span class=&quot;error&quot;&gt;The &quot;email&quot; field doesn&#39;t contain a valid e-mail address!&lt;/span&gt;
+        &lt;span class=&quot;error&quot;&gt;The &quot;password&quot; field doesn&#39;t match the &quot;repeat_password&quot; field!&lt;/span&gt;
+
+ */
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="form_prep">
+<code class="sig-name descname">form_prep</code><span class="sig-paren">(</span><em class="sig-param">$str</em><span class="sig-paren">)</span><a class="headerlink" href="#form_prep" title="Link permanen untuk definisi ini">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameter</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$str</strong> (<em>string</em>) -- Value to escape</p></li>
+</ul>
+</dd>
+<dt class="field-even">Kembali</dt>
+<dd class="field-even"><p>Escaped value</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+<p>Allows you to safely use HTML and characters such as quotes within form
+elements without breaking out of the form.</p>
+<div class="admonition note">
+<p class="admonition-title">Catatan</p>
+<p>If you use any of the form helper functions listed in this page the form
+values will be prepped automatically, so there is no need to call this
+function. Use it only if you are creating your own form elements.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Catatan</p>
+<p>This function is DEPRECATED and is just an alias for
+<a class="reference internal" href="../general/common_functions.html"><span class="doc">common function</span></a>
+<code class="xref py py-func docutils literal notranslate"><span class="pre">html_escape()</span></code> - please use that instead.</p>
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="html_helper.html" class="btn btn-neutral float-right" title="HTML Helper">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="file_helper.html" class="btn btn-neutral" title="File Helper"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014 - 2015, British Columbia Institute of Technology.
+      Terakhir diperbarui pada Jun 19, 2019.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'3.0.3-dev',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  false
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

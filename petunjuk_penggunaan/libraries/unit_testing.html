@@ -1,0 +1,823 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Unit Testing Class &mdash; dokumentasi CodeIgniter 3.0.3-dev</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/ci-icon.ico"/>
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/citheme.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Indeks"
+              href="../genindex.html"/>
+        <link rel="search" title="Pencarian" href="../search.html"/>
+    <link rel="top" title="dokumentasi CodeIgniter 3.0.3-dev" href="../index.html"/>
+        <link rel="up" title="Referensi Library" href="index.html"/>
+        <link rel="next" title="URI Class" href="uri.html"/>
+        <link rel="prev" title="Typography Class" href="typography.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div id="nav">
+  <div id="nav_inner">
+    
+    
+    
+      <div id="pulldown-menu" class="ciNav">
+        <ul>
+<li class="toctree-l1"><a class="reference internal" href="../general/welcome.html">Selamat datang di CodeIgniter</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Panduan Instalasi</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/downloads.html">Downloading CodeIgniter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/index.html">Panduan Instalasi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/upgrading.html">Upgrade Dari Versi Sebelumnya</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/troubleshooting.html">Penyelesaian Masalah</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Ikhtisar CodeIgniter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../overview/getting_started.html">Memulai dengan CodeIgniter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/at_a_glance.html">Sekilas Tentang CodeIgniter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/features.html">Fitur yang Didukung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/appflow.html">Alur Aplikasi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/mvc.html">Model-View-Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/goals.html">Desain and Sasaran Arsitektur</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/static_pages.html">Halaman Statis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/news_section.html">Bagian Berita</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/create_news_items.html">Membuat Item Berita</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/conclusion.html">Kesimpulan</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">Berkontribusi ke CodeIgniter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/index.html">Menulis Dokumentasi CodeIgniter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer's Certificate of Origin 1.1</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../general/index.html">Pembahasan Umum</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../general/urls.html">CodeIgniter URLs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/controllers.html">Controllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/reserved_names.html">Reserved Names</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/views.html">Views</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/models.html">Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/helpers.html">Helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/libraries.html">Menggunakan Library CodeIgniter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/creating_libraries.html">Membuat Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/drivers.html">Using CodeIgniter Drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/creating_drivers.html">Membuat Driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/core_classes.html">Membuat Class Inti Sistem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/ancillary_classes.html">Membuat Class Tambahan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/hooks.html">Hooks - Mengembangkan Inti Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/autoloader.html">Auto-loading Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/common_functions.html">Fungsi-fungsi Umum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/compatibility_functions.html">Fungsi-fungsi Kompatibilitas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/routing.html">URI Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/errors.html">Penanganan Error</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/caching.html">Caching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/profiling.html">Profiling Aplikasi Anda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/cli.html">Menjalankan dengan CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/managing_apps.html">Mengelola Aplikasi Anda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/environments.html">Handling Multiple Environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/alternative_php.html">Alternatif Syntax PHP untuk File View</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/security.html">Keamanan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/styleguide.html">PHP Style Guide</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Referensi Library</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="benchmark.html">Benchmarking Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="caching.html">Caching Driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="calendar.html">Calendaring Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cart.html">Shopping Cart Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config.html">Config Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="email.html">Email Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="encrypt.html">Encrypt Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="encryption.html">Encryption Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="file_uploading.html">File Uploading Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="form_validation.html">Form Validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ftp.html">FTP Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="image_lib.html">Image Manipulation Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="input.html">Input Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="javascript.html">Javascript Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="language.html">Language Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="loader.html">Loader Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration.html">Migrations Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="output.html">Output Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pagination.html">Pagination Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parser.html">Template Parser Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">Security Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sessions.html">Session Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="table.html">HTML Table Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trackback.html">Trackback Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typography.html">Typography Class</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Unit Testing Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uri.html">URI Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_agent.html">User Agent Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="xmlrpc.html">XML-RPC and XML-RPC Server Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zip.html">Zip Encoding Class</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../database/index.html">Referensi Database</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../database/examples.html">Quick Start: Contoh Penggunaan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/configuration.html">Konfigurasi Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/connecting.html">Menghubungkan ke Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/queries.html">Menjalankan Queries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/results.html">Menampilkan Hasil Query</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/helpers.html">Fungsi-fungsi Query Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/query_builder.html">Query Builder Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Transactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Mendapatkan MetaData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Memanggil Custom Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/caching.html">Query Caching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/forge.html">Manipulasi Database dengan Database Forge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/utilities.html">Database Utilities Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/db_driver_reference.html">Referensi Database Driver</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../helpers/index.html">Referensi Helper</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/array_helper.html">Array Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/captcha_helper.html">CAPTCHA Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/cookie_helper.html">Cookie Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/date_helper.html">Date Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/directory_helper.html">Directory Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/download_helper.html">Download Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/email_helper.html">Email Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/file_helper.html">File Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/form_helper.html">Form Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/html_helper.html">HTML Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/inflector_helper.html">Inflector Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/language_helper.html">Language Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/number_helper.html">Number Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/path_helper.html">Path Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/security_helper.html">Security Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/smiley_helper.html">Smiley Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/string_helper.html">String Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/text_helper.html">Text Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/typography_helper.html">Typography Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/url_helper.html">URL Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/xml_helper.html">XML Helper</a></li>
+</ul>
+</li>
+</ul>
+
+      </div>
+    
+      
+  </div>
+</div>
+<div id="nav2">
+  <a href="#" id="openToc">
+    <img src="data:image/jpeg;base64,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" title="Toggle Table of Contents" alt="Toggle Table of Contents" />
+  </a>
+</div>
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="../index.html" class="fa fa-home"> CodeIgniter</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../general/welcome.html">Selamat datang di CodeIgniter</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Panduan Instalasi</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/downloads.html">Downloading CodeIgniter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/index.html">Panduan Instalasi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/upgrading.html">Upgrade Dari Versi Sebelumnya</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/troubleshooting.html">Penyelesaian Masalah</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Ikhtisar CodeIgniter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../overview/getting_started.html">Memulai dengan CodeIgniter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/at_a_glance.html">Sekilas Tentang CodeIgniter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/features.html">Fitur yang Didukung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/appflow.html">Alur Aplikasi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/mvc.html">Model-View-Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/goals.html">Desain and Sasaran Arsitektur</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/static_pages.html">Halaman Statis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/news_section.html">Bagian Berita</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/create_news_items.html">Membuat Item Berita</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/conclusion.html">Kesimpulan</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">Berkontribusi ke CodeIgniter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/index.html">Menulis Dokumentasi CodeIgniter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer's Certificate of Origin 1.1</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../general/index.html">Pembahasan Umum</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../general/urls.html">CodeIgniter URLs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/controllers.html">Controllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/reserved_names.html">Reserved Names</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/views.html">Views</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/models.html">Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/helpers.html">Helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/libraries.html">Menggunakan Library CodeIgniter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/creating_libraries.html">Membuat Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/drivers.html">Using CodeIgniter Drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/creating_drivers.html">Membuat Driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/core_classes.html">Membuat Class Inti Sistem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/ancillary_classes.html">Membuat Class Tambahan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/hooks.html">Hooks - Mengembangkan Inti Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/autoloader.html">Auto-loading Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/common_functions.html">Fungsi-fungsi Umum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/compatibility_functions.html">Fungsi-fungsi Kompatibilitas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/routing.html">URI Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/errors.html">Penanganan Error</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/caching.html">Caching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/profiling.html">Profiling Aplikasi Anda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/cli.html">Menjalankan dengan CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/managing_apps.html">Mengelola Aplikasi Anda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/environments.html">Handling Multiple Environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/alternative_php.html">Alternatif Syntax PHP untuk File View</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/security.html">Keamanan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/styleguide.html">PHP Style Guide</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Referensi Library</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="benchmark.html">Benchmarking Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="caching.html">Caching Driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="calendar.html">Calendaring Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cart.html">Shopping Cart Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config.html">Config Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="email.html">Email Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="encrypt.html">Encrypt Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="encryption.html">Encryption Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="file_uploading.html">File Uploading Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="form_validation.html">Form Validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ftp.html">FTP Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="image_lib.html">Image Manipulation Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="input.html">Input Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="javascript.html">Javascript Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="language.html">Language Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="loader.html">Loader Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration.html">Migrations Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="output.html">Output Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pagination.html">Pagination Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parser.html">Template Parser Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">Security Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sessions.html">Session Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="table.html">HTML Table Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trackback.html">Trackback Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typography.html">Typography Class</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Unit Testing Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uri.html">URI Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_agent.html">User Agent Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="xmlrpc.html">XML-RPC and XML-RPC Server Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zip.html">Zip Encoding Class</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../database/index.html">Referensi Database</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../database/examples.html">Quick Start: Contoh Penggunaan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/configuration.html">Konfigurasi Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/connecting.html">Menghubungkan ke Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/queries.html">Menjalankan Queries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/results.html">Menampilkan Hasil Query</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/helpers.html">Fungsi-fungsi Query Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/query_builder.html">Query Builder Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Transactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Mendapatkan MetaData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Memanggil Custom Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/caching.html">Query Caching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/forge.html">Manipulasi Database dengan Database Forge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/utilities.html">Database Utilities Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/db_driver_reference.html">Referensi Database Driver</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../helpers/index.html">Referensi Helper</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/array_helper.html">Array Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/captcha_helper.html">CAPTCHA Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/cookie_helper.html">Cookie Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/date_helper.html">Date Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/directory_helper.html">Directory Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/download_helper.html">Download Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/email_helper.html">Email Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/file_helper.html">File Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/form_helper.html">Form Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/html_helper.html">HTML Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/inflector_helper.html">Inflector Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/language_helper.html">Language Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/number_helper.html">Number Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/path_helper.html">Path Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/security_helper.html">Security Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/smiley_helper.html">Smiley Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/string_helper.html">String Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/text_helper.html">Text Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/typography_helper.html">Typography Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/url_helper.html">URL Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/xml_helper.html">XML Helper</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">CodeIgniter</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+        <li><a href="index.html">Referensi Library</a> &raquo;</li>
+      
+    <li>Unit Testing Class</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+    <div style="float:right;margin-left:5px;" id="closeMe">
+      <img title="Classic Layout" alt="classic layout" src="data:image/gif;base64,R0lGODlhFAAUAJEAAAAAADMzM////wAAACH5BAUUAAIALAAAAAAUABQAAAImlI+py+0PU5gRBRDM3DxbWoXis42X13USOLauUIqnlsaH/eY6UwAAOw==" />
+    </div>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="unit-testing-class">
+<h1>Unit Testing Class<a class="headerlink" href="#unit-testing-class" title="Link permanen untuk headline ini">¶</a></h1>
+<p>Unit testing is an approach to software development in which tests are
+written for each function in your application. If you are not familiar
+with the concept you might do a little googling on the subject.</p>
+<p>CodeIgniter's Unit Test class is quite simple, consisting of an
+evaluation function and two result functions. It's not intended to be a
+full-blown test suite but rather a simple mechanism to evaluate your
+code to determine if it is producing the correct data type and result.</p>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#using-the-unit-testing-library" id="id1">Using the Unit Testing Library</a></p>
+<ul>
+<li><p><a class="reference internal" href="#initializing-the-class" id="id2">Initializing the Class</a></p></li>
+<li><p><a class="reference internal" href="#running-tests" id="id3">Running Tests</a></p></li>
+<li><p><a class="reference internal" href="#generating-reports" id="id4">Generating Reports</a></p></li>
+<li><p><a class="reference internal" href="#strict-mode" id="id5">Strict Mode</a></p></li>
+<li><p><a class="reference internal" href="#enabling-disabling-unit-testing" id="id6">Enabling/Disabling Unit Testing</a></p></li>
+<li><p><a class="reference internal" href="#unit-test-display" id="id7">Unit Test Display</a></p>
+<ul>
+<li><p><a class="reference internal" href="#customizing-displayed-tests" id="id8">Customizing displayed tests</a></p></li>
+<li><p><a class="reference internal" href="#creating-a-template" id="id9">Creating a Template</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#class-reference" id="id10">Class Reference</a></p></li>
+</ul>
+</div>
+<div class="custom-index container"></div><div class="section" id="using-the-unit-testing-library">
+<h2><a class="toc-backref" href="#id1">Using the Unit Testing Library</a><a class="headerlink" href="#using-the-unit-testing-library" title="Link permanen untuk headline ini">¶</a></h2>
+<div class="section" id="initializing-the-class">
+<h3><a class="toc-backref" href="#id2">Initializing the Class</a><a class="headerlink" href="#initializing-the-class" title="Link permanen untuk headline ini">¶</a></h3>
+<p>Like most other classes in CodeIgniter, the Unit Test class is
+initialized in your controller using the $this-&gt;load-&gt;library function:</p>
+<div class="highlight-ci notranslate"><div class="highlight"><pre><span></span>$this-&gt;load-&gt;library(&#39;unit_test&#39;);
+</pre></div>
+</div>
+<p>Once loaded, the Unit Test object will be available using <code class="docutils literal notranslate"><span class="pre">$this-&gt;unit</span></code></p>
+</div>
+<div class="section" id="running-tests">
+<h3><a class="toc-backref" href="#id3">Running Tests</a><a class="headerlink" href="#running-tests" title="Link permanen untuk headline ini">¶</a></h3>
+<p>Running a test involves supplying a test and an expected result in the
+following way:</p>
+<blockquote>
+<div><p>$this-&gt;unit-&gt;run('test', 'expected result', 'test name', 'notes');</p>
+</div></blockquote>
+<p>Where test is the result of the code you wish to test, expected result
+is the data type you expect, test name is an optional name you can give
+your test, and notes are optional notes. Example:</p>
+<div class="highlight-ci notranslate"><div class="highlight"><pre><span></span>$test = 1 + 1;
+
+$expected_result = 2;
+
+$test_name = &#39;Adds one plus one&#39;;
+
+$this-&gt;unit-&gt;run($test, $expected_result, $test_name);
+</pre></div>
+</div>
+<p>The expected result you supply can either be a literal match, or a data
+type match. Here's an example of a literal:</p>
+<div class="highlight-ci notranslate"><div class="highlight"><pre><span></span>$this-&gt;unit-&gt;run(&#39;Foo&#39;, &#39;Foo&#39;);
+</pre></div>
+</div>
+<p>Here is an example of a data type match:</p>
+<div class="highlight-ci notranslate"><div class="highlight"><pre><span></span>$this-&gt;unit-&gt;run(&#39;Foo&#39;, &#39;is_string&#39;);
+</pre></div>
+</div>
+<p>Notice the use of &quot;is_string&quot; in the second parameter? This tells the
+function to evaluate whether your test is producing a string as the
+result. Here is a list of allowed comparison types:</p>
+<ul class="simple">
+<li><p>is_object</p></li>
+<li><p>is_string</p></li>
+<li><p>is_bool</p></li>
+<li><p>is_true</p></li>
+<li><p>is_false</p></li>
+<li><p>is_int</p></li>
+<li><p>is_numeric</p></li>
+<li><p>is_float</p></li>
+<li><p>is_double</p></li>
+<li><p>is_array</p></li>
+<li><p>is_null</p></li>
+<li><p>is_resource</p></li>
+</ul>
+</div>
+<div class="section" id="generating-reports">
+<h3><a class="toc-backref" href="#id4">Generating Reports</a><a class="headerlink" href="#generating-reports" title="Link permanen untuk headline ini">¶</a></h3>
+<p>You can either display results after each test, or your can run several
+tests and generate a report at the end. To show a report directly simply
+echo or return the run function:</p>
+<div class="highlight-ci notranslate"><div class="highlight"><pre><span></span>echo $this-&gt;unit-&gt;run($test, $expected_result);
+</pre></div>
+</div>
+<p>To run a full report of all tests, use this:</p>
+<div class="highlight-ci notranslate"><div class="highlight"><pre><span></span>echo $this-&gt;unit-&gt;report();
+</pre></div>
+</div>
+<p>The report will be formatted in an HTML table for viewing. If you prefer
+the raw data you can retrieve an array using:</p>
+<div class="highlight-ci notranslate"><div class="highlight"><pre><span></span>echo $this-&gt;unit-&gt;result();
+</pre></div>
+</div>
+</div>
+<div class="section" id="strict-mode">
+<h3><a class="toc-backref" href="#id5">Strict Mode</a><a class="headerlink" href="#strict-mode" title="Link permanen untuk headline ini">¶</a></h3>
+<p>By default the unit test class evaluates literal matches loosely.
+Consider this example:</p>
+<div class="highlight-ci notranslate"><div class="highlight"><pre><span></span>$this-&gt;unit-&gt;run(1, TRUE);
+</pre></div>
+</div>
+<p>The test is evaluating an integer, but the expected result is a boolean.
+PHP, however, due to it's loose data-typing will evaluate the above code
+as TRUE using a normal equality test:</p>
+<div class="highlight-ci notranslate"><div class="highlight"><pre><span></span>if (1 == TRUE) echo &#39;This evaluates as true&#39;;
+</pre></div>
+</div>
+<p>If you prefer, you can put the unit test class in to strict mode, which
+will compare the data type as well as the value:</p>
+<div class="highlight-ci notranslate"><div class="highlight"><pre><span></span>if (1 === TRUE) echo &#39;This evaluates as FALSE&#39;;
+</pre></div>
+</div>
+<p>To enable strict mode use this:</p>
+<div class="highlight-ci notranslate"><div class="highlight"><pre><span></span>$this-&gt;unit-&gt;use_strict(TRUE);
+</pre></div>
+</div>
+</div>
+<div class="section" id="enabling-disabling-unit-testing">
+<h3><a class="toc-backref" href="#id6">Enabling/Disabling Unit Testing</a><a class="headerlink" href="#enabling-disabling-unit-testing" title="Link permanen untuk headline ini">¶</a></h3>
+<p>If you would like to leave some testing in place in your scripts, but
+not have it run unless you need it, you can disable unit testing using:</p>
+<div class="highlight-ci notranslate"><div class="highlight"><pre><span></span>$this-&gt;unit-&gt;active(FALSE);
+</pre></div>
+</div>
+</div>
+<div class="section" id="unit-test-display">
+<h3><a class="toc-backref" href="#id7">Unit Test Display</a><a class="headerlink" href="#unit-test-display" title="Link permanen untuk headline ini">¶</a></h3>
+<p>When your unit test results display, the following items show by
+default:</p>
+<ul class="simple">
+<li><p>Test Name (test_name)</p></li>
+<li><p>Test Datatype (test_datatype)</p></li>
+<li><p>Expected Datatype (res_datatype)</p></li>
+<li><p>Result (result)</p></li>
+<li><p>File Name (file)</p></li>
+<li><p>Line Number (line)</p></li>
+<li><p>Any notes you entered for the test (notes)</p></li>
+</ul>
+<p>You can customize which of these items get displayed by using
+$this-&gt;unit-&gt;set_test_items(). For example, if you only wanted the test name
+and the result displayed:</p>
+<div class="section" id="customizing-displayed-tests">
+<h4><a class="toc-backref" href="#id8">Customizing displayed tests</a><a class="headerlink" href="#customizing-displayed-tests" title="Link permanen untuk headline ini">¶</a></h4>
+<div class="highlight-ci notranslate"><div class="highlight"><pre><span></span>$this-&gt;unit-&gt;set_test_items(array(&#39;test_name&#39;, &#39;result&#39;));
+</pre></div>
+</div>
+</div>
+<div class="section" id="creating-a-template">
+<h4><a class="toc-backref" href="#id9">Creating a Template</a><a class="headerlink" href="#creating-a-template" title="Link permanen untuk headline ini">¶</a></h4>
+<p>If you would like your test results formatted differently then the
+default you can set your own template. Here is an example of a simple
+template. Note the required pseudo-variables:</p>
+<div class="highlight-ci notranslate"><div class="highlight"><pre><span></span>$str = &#39;
+&lt;table border=&quot;0&quot; cellpadding=&quot;4&quot; cellspacing=&quot;1&quot;&gt;
+{rows}
+        &lt;tr&gt;
+                &lt;td&gt;{item}&lt;/td&gt;
+                &lt;td&gt;{result}&lt;/td&gt;
+        &lt;/tr&gt;
+{/rows}
+&lt;/table&gt;&#39;;
+
+$this-&gt;unit-&gt;set_template($str);
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Catatan</p>
+<p>Your template must be declared <strong>before</strong> running the unit
+test process.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="class-reference">
+<h2><a class="toc-backref" href="#id10">Class Reference</a><a class="headerlink" href="#class-reference" title="Link permanen untuk headline ini">¶</a></h2>
+<dl class="class">
+<dt id="CI_Unit_test">
+<em class="property">class </em><code class="sig-name descname">CI_Unit_test</code><a class="headerlink" href="#CI_Unit_test" title="Link permanen untuk definisi ini">¶</a></dt>
+<dd><dl class="method">
+<dt id="CI_Unit_test::set_test_items">
+<code class="sig-name descname">set_test_items</code><span class="sig-paren">(</span><em class="sig-param">$items</em><span class="sig-paren">)</span><a class="headerlink" href="#CI_Unit_test::set_test_items" title="Link permanen untuk definisi ini">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameter</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$items</strong> (<em>array</em>) -- List of visible test items</p></li>
+</ul>
+</dd>
+<dt class="field-even">Kembali</dt>
+<dd class="field-even"><p>void</p>
+</dd>
+</dl>
+<p>Sets a list of items that should be visible in tests.
+Valid options are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>test_name</p></li>
+<li><p>test_datatype</p></li>
+<li><p>res_datatype</p></li>
+<li><p>result</p></li>
+<li><p>file</p></li>
+<li><p>line</p></li>
+<li><p>notes</p></li>
+</ul>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="CI_Unit_test::run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param">$test</em><span class="optional">[</span>, <em class="sig-param">$expected = TRUE</em><span class="optional">[</span>, <em class="sig-param">$test_name = 'undefined'</em><span class="optional">[</span>, <em class="sig-param">$notes = ''</em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#CI_Unit_test::run" title="Link permanen untuk definisi ini">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameter</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$test</strong> (<em>mixed</em>) -- Test data</p></li>
+<li><p><strong>$expected</strong> (<em>mixed</em>) -- Expected result</p></li>
+<li><p><strong>$test_name</strong> (<em>string</em>) -- Test name</p></li>
+<li><p><strong>$notes</strong> (<em>string</em>) -- Any notes to be attached to the test</p></li>
+</ul>
+</dd>
+<dt class="field-even">Kembali</dt>
+<dd class="field-even"><p>Test report</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+<p>Runs unit tests.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CI_Unit_test::report">
+<code class="sig-name descname">report</code><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param">$result = array()</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#CI_Unit_test::report" title="Link permanen untuk definisi ini">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameter</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$result</strong> (<em>array</em>) -- Array containing tests results</p></li>
+</ul>
+</dd>
+<dt class="field-even">Kembali</dt>
+<dd class="field-even"><p>Test report</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+<p>Generates a report about already complete tests.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CI_Unit_test::use_strict">
+<code class="sig-name descname">use_strict</code><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param">$state = TRUE</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#CI_Unit_test::use_strict" title="Link permanen untuk definisi ini">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameter</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$state</strong> (<em>bool</em>) -- Strict state flag</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>void</p>
+</dd>
+</dl>
+<p>Enables/disables strict type comparison in tests.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CI_Unit_test::active">
+<code class="sig-name descname">active</code><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param">$state = TRUE</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#CI_Unit_test::active" title="Link permanen untuk definisi ini">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameter</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$state</strong> (<em>bool</em>) -- Whether to enable testing</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>void</p>
+</dd>
+</dl>
+<p>Enables/disables unit testing.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CI_Unit_test::result">
+<code class="sig-name descname">result</code><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param">$results = array()</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#CI_Unit_test::result" title="Link permanen untuk definisi ini">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameter</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$results</strong> (<em>array</em>) -- Tests results list</p></li>
+</ul>
+</dd>
+<dt class="field-even">Kembali</dt>
+<dd class="field-even"><p>Array of raw result data</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>array</p>
+</dd>
+</dl>
+<p>Returns raw tests results data.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CI_Unit_test::set_template">
+<code class="sig-name descname">set_template</code><span class="sig-paren">(</span><em class="sig-param">$template</em><span class="sig-paren">)</span><a class="headerlink" href="#CI_Unit_test::set_template" title="Link permanen untuk definisi ini">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameter</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$template</strong> (<em>string</em>) -- Test result template</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>void</p>
+</dd>
+</dl>
+<p>Sets the template for displaying tests results.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="uri.html" class="btn btn-neutral float-right" title="URI Class">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="typography.html" class="btn btn-neutral" title="Typography Class"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014 - 2015, British Columbia Institute of Technology.
+      Terakhir diperbarui pada Jun 19, 2019.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'3.0.3-dev',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  false
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
