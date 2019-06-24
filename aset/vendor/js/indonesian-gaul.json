@@ -1,0 +1,25 @@
+
+{
+	"sEmptyTable":	 "Nampaknya tabel ini kosong",
+	"sProcessing":   "Lagi diproses...",
+	"sLengthMenu":   "Menampilkan _MENU_ entri per halaman",
+	"sZeroRecords":  "Hmm... data tidak ditemukan. Tipo?",
+	"sInfo":         "Menampilkan _START_ hingga _END_ dari _TOTAL_ entri data",
+	"sInfoEmpty":    "0 entri data di tabel",
+	"sInfoFiltered": "(disaring dari _MAX_ total entri)",
+	"sLoadingRecords": "Memuat...",
+	"sInfoThousands":  ",",
+	"sInfoPostFix":  "",
+	"sSearch":       "Cari:",
+	"sUrl":          "",
+	"oPaginate": {
+		"sFirst":    "Awal",
+		"sPrevious": "Sebelumnya",
+		"sNext":     "Selanjutnya",
+		"sLast":     "Akhir"
+	},
+    "oAria": {
+        "sSortAscending":  ": aktifkan (klik) untuk urut kolom dari yang kecil ke yang besar",
+        "sSortDescending": ": aktifkan (klik) untuk urut kolom dari yang besar ke yang kecil"
+    }
+}
