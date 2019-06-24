@@ -3,11 +3,12 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 23, 2019 at 07:24 PM
+-- Generation Time: Jun 24, 2019 at 03:49 PM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.11
 
 SET FOREIGN_KEY_CHECKS=0;
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
@@ -19,29 +20,41 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: "kampus"
+-- Database: `kampus`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table "mahasiswa"
+-- Table structure for table `mahasiswa`
 --
 
-CREATE TABLE "mahasiswa" ;
+CREATE TABLE `mahasiswa` (
+  `id` int(255) NOT NULL,
+  `nim` varchar(255) NOT NULL,
+  `nama` varchar(255) NOT NULL,
+  `prodi` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table "mahasiswa"
+-- Indexes for dumped tables
 --
 
-SET IDENTITY_INSERT "mahasiswa" ON ;
-INSERT INTO "mahasiswa" ("id", "nim", "nama", "prodi") VALUES
-(1, '14.02.11', 'Ayaa', 'MI'),
-(2, '17.03.019', 'Jake', 'TI'),
-(3, '17.17.17', 'HUGO', 'MI'),
-(11, '15.12.11', 'Kyle', 'MI');
+--
+-- Indexes for table `mahasiswa`
+--
+ALTER TABLE `mahasiswa`
+  ADD PRIMARY KEY (`id`);
 
-SET IDENTITY_INSERT "mahasiswa" OFF;
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `mahasiswa`
+--
+ALTER TABLE `mahasiswa`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 SET FOREIGN_KEY_CHECKS=1;
 COMMIT;
 
