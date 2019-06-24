@@ -25,7 +25,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <!-- Disini tabelnya -->
-                    <table class="table table-center">
+                    <table class="table table-center" id="tabelMahasiswa">
 
                         <!-- Disini kepalanya tabel -->
                         <thead>
@@ -71,6 +71,15 @@
     </section>
 
     <script>
+    // Inisialisasi plugin JqueryDataTable
+    $(document).ready(function() {
+        $('#tabelMahasiswa').DataTable({
+            "language": {
+                "url": "<?= jsURL(); ?>indonesian-gaul.json"
+            }
+        });
+    } );
+
     // Atur variabel global yang bakal dipake disemua fungsi 
     // di javascript bair gak cape ngetik
     var uri = "<?= base_url(); ?>mahasiswa/";
