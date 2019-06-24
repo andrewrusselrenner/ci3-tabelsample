@@ -14,7 +14,7 @@ lalu atur bagian ini dan sesuaikan dengan url mu:
     $config['base_url']  =  'https://form.fusslp.com';
    Kalau localhost saja, berarti:
    
-    $config['base_url']  =  'https://localhost/folderkamu';
+    $config['base_url']  =  'http://localhost/folderkamu';
 6. Atur informasi database di:
 	> application/config/database.php
 
