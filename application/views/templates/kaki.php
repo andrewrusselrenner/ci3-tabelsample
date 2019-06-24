@@ -1,6 +1,3 @@
-    <!-- jQuery -->
-    <script src="<?= npmURL(); ?>jquery/dist/jquery.min.js"></script>
-
     <!-- Popper.js -->
     <script src="<?= npmURL(); ?>popper.js/dist/umd/popper.min.js"></script>
 
@@ -9,6 +6,12 @@
 
     <!-- SweetAler2 JS nya, pengganti BS Modal -->
     <script src="<?= npmURL(); ?>sweetalert2/dist/sweetalert2.all.min.js"></script>
+
+    <!-- Untuk plugin JqueryDataTabel -->
+    <script src="<?= jsURL(); ?>jquery.dataTables.min.js"></script>
+
+    <!-- Untuk plugin JquertDataTabel juga, tapi semenjak kita make Bootstrap, jadi stylingnya gak pake bawaan pluginnya. -->
+    <script src="<?= jsURL(); ?>dataTables.bootstrap4.min.js"></script>
     
     <!-- Kostum JavaScript yang dibuat untuk modal -->
     <script src="<?= jsURL(); ?>mhsmodal.js"></script>
