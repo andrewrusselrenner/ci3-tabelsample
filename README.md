@@ -33,4 +33,12 @@ lalu atur bagian ini dan sesuaikan dengan url mu:
 	4. Lalu klik **Go** atau **Kirim**
 8. Selesai. Silahkan lihat keterangan/instruksi di dalamnya.
 
-	 
+## Routing
+Secara bawaan, halaman akan ditampilkan dengan pesan selamat datang di CodeIgniter. Ini karena default route untuk index yaitu controller Welcome.php. Untuk mengakses tabelnya, pergi ke **http://namadomainmu.com/mahasiswa/tabel**, karena tabelnya berada di controller Mahasiswa.php, sedangkan untuk tampilan tabelnya ada di **views/mahasiswa/tabel.php**. Jikalau mau akses tabel tanpa perlu substring mahasiswa/tabel, buka ***routes.php*** di folder **application/config**, lalu pada array:
+> $route['default_controller'] = 'welcome';
+ganti dari
+> 'welcome'
+menjadi
+> 'mahasiswa/tabel'
+
+kemudian akses **http://namadomainmu.com** tanpa perlu ~~mahasiswa/tabel~~ lagi.
