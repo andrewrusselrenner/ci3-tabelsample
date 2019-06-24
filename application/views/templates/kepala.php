@@ -9,7 +9,8 @@
     <!-- CSS Kustom Bootstrap 4 dari bootswatch.com -->
     <link rel="stylesheet" href="<?= cssURL(); ?>bootstrap.min.css">
 
-    
+    <!-- jQuery -->
+    <script src="<?= npmURL(); ?>jquery/dist/jquery.min.js"></script>    
     
     <!-- SweetAlert2 CSS nya, pengganti BS Modal -->
     <link rel="stylesheet" href="<?= npmURL(); ?>sweetalert2/dist/sweetalert2.min.css">
