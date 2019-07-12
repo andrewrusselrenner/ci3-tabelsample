@@ -1,5 +1,9 @@
 # SimpleTable Menggunakan CodeIgniter 3 (Modified)
 Contoh penggunaan CodeIgniter dengan tabel sederhana dengan menampilkan data singkat dan menggunakan dependensi seperti Bootstrap 4, JQuery, dan SweetAlert2.
+
+NOTE : Bagi yang mau ngikutin dengan cara tulis ulang kode, bisa download template CI3 yang sudah dimodifikasi di repo di akun ini dengan nama UseTable-CI3ID (kalo gak salah). Biasakan ikuti dan ketik ulang supaya mengerti, anggap aja raba-raba, nanti ngerti juga. 
+Goodluck! 
+
 ## Instalasi
 1. Pastikan punya git di mesin kamu. Belum punya? download di [disini](https://git-scm.com/download/win) atau kamu bisa download langsung [disini](https://github.com/andrewrusselrenner/ci3-tabelsample/archive/master.zip).
 2. Buat folder dulu di htdocs(Xampp) atau di www (WampServer).
@@ -44,3 +48,11 @@ menjadi
 > 'mahasiswa/tabel'
 
 kemudian akses **http://namadomainmu.com** tanpa perlu ~~mahasiswa/tabel~~ lagi.
+
+## Step berkas yang perlu dilihat
+1. mahasiswa_model.php di folder Model
+2. Mahasiswa.php di folder Controller
+3. mahasiswa.php di folder views/tabel
+4. mhs_modal.js di folder aset/vendor/js
+
+Instruksi ikuti komentar "//" disetiap baris kode. 
